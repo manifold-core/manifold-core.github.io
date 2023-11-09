@@ -26,8 +26,7 @@ const STEPS = [
   },
   {
     title: "Notify your network.",
-    description:
-      "Choose up to 10 people in your network to start your search.",
+    description: "Choose up to 10 people in your network to start your search.",
     icon: <ChatBubbleOvalLeftIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
   {
