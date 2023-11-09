@@ -49,7 +49,7 @@ export default function Hero() {
           <Search />
         </div>
 
-        <div className="mx-auto hidden max-w-[200px] text-center md:block">
+        <div className="mx-auto hidden max-w-[200px] text-center">
           <a
             className="btn mx-auto flex flex-col rounded-full bg-zinc-900 px-8 text-zinc-100 shadow hover:bg-zinc-800"
             href="#solution"
