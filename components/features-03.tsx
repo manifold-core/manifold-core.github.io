@@ -6,10 +6,11 @@ import Image from "next/image"
 import CarouselIllustration from "@/public/images/carousel-illustration-01.jpg"
 import {
   ChatBubbleOvalLeftIcon,
-  CheckBadgeIcon, CpuChipIcon,
+  CheckBadgeIcon,
+  CpuChipIcon,
   CurrencyDollarIcon,
-  MagnifyingGlassIcon
-} from "@heroicons/react/24/outline";
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline"
 
 const STEPS = [
   {
@@ -19,22 +20,26 @@ const STEPS = [
   },
   {
     title: "Set a bounty.",
-    description: "Determine the incentive for people to help you find that perfect person.",
+    description:
+      "Determine the incentive for people to help you find that perfect person.",
     icon: <CurrencyDollarIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
   {
     title: "Notify your network.",
-    description: "Choose up to 10 people in your network to start your search and us handle the rest.",
+    description:
+      "Choose up to 10 people in your network to start your search and us handle the rest.",
     icon: <ChatBubbleOvalLeftIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
   {
     title: "Bounty hunt.",
-    description: "Bounty usese AI to engage your extended network with incentives to find your target.",
+    description:
+      "Bounty uses AI to engage your extended network to assist in finding your target.",
     icon: <CpuChipIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
   {
     title: "Success.",
-    description: "Once found, bounty splits the reward across all the people who helped along the way.",
+    description:
+      "Once found, bounty splits the reward across all the people who helped along the way.",
     icon: <CheckBadgeIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
 ]
@@ -69,7 +74,9 @@ export default function Features03() {
                   Supercharge your search
                 </h3>
                 <p className="text-lg text-zinc-400">
-                  {"Bounty combines the power of AI, our proprietary search algorithm, and your professional network to find the best way to access the people you're looking for."}
+                  {
+                    "Bounty combines the power of AI, our proprietary search algorithm, and your professional network to find the best way to access the people you're looking for."
+                  }
                 </p>
               </div>
               {/* Tabs buttons */}
@@ -87,9 +94,13 @@ export default function Features03() {
                       setTab(i + 1)
                     }}
                   >
-                    <div className="block" style={{ width: "32px !important"}}>{step.icon}</div>
+                    <div className="block" style={{ width: "32px !important" }}>
+                      {step.icon}
+                    </div>
                     <div className="grow">
-                      <div className="font-inter-tight mb-1 text-lg font-semibold text-zinc-200">{i + 1}. {step.title}</div>
+                      <div className="font-inter-tight mb-1 text-lg font-semibold text-zinc-200">
+                        {i + 1}. {step.title}
+                      </div>
                       <div className="text-zinc-400">{step.description}</div>
                     </div>
                   </div>

@@ -1,15 +1,16 @@
 "use client"
 
-import {Search} from "@/components/search";
-import Image from "next/image";
+import { Search } from "@/components/search"
+import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
+import { ArrowDownIcon } from "@heroicons/react/24/outline"
 
 export default function Hero() {
-  // @ts-ignore
-  // @ts-ignore
-  // @ts-ignore
   return (
-    <section id="search" className="relative flex h-screen items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100">
+    <section
+      id="search"
+      className="relative flex h-screen items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100"
+    >
       <div
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true"
@@ -31,27 +32,32 @@ export default function Hero() {
             <div className="text-center">
               <em className="relative inline-flex items-center justify-center italic text-zinc-900"></em>
               <h1 className="font-inter-tight bg-gradient-to-r from-zinc-900 via-zinc-900 to-zinc-500 bg-clip-text pb-4 text-5xl font-bold text-transparent md:text-6xl">
-                people search <span className="bg-gradient-to-r from-[#6366F1] to-[#A1ADFF] bg-clip-text text-transparent">supercharged</span>
+                people search{" "}
+                <span className="bg-gradient-to-r from-[#6366F1] to-[#A1ADFF] bg-clip-text text-transparent">
+                  supercharged
+                </span>
               </h1>
               <p className="mb-8 text-lg text-zinc-500 lg:text-xl">
-                Get the introduction to the people you need to take your startup to
-                the next level.
+                Get the introduction to the people you need to take your startup
+                to the next level.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mx-auto mb-10 w-full max-w-4xl px-4 sm:px-6 md:mb-20 lg:px-8">
+        <div className="mb-15 mx-auto w-full max-w-4xl px-4 sm:px-6 md:mb-20 lg:px-8">
           <Search />
         </div>
 
-        {/* Image */}
-        {/*<div className="relative mx-auto flex max-w-6xl justify-center px-4 pb-12 before:absolute before:-top-12 before:-z-10 before:h-96 before:w-96 before:rounded-full before:bg-zinc-900 before:opacity-[.15] before:blur-3xl sm:px-6 md:pb-20">*/}
-        {/*  <Image className="rounded-lg shadow-2xl" src={HeroImage} width={1104} height={620} alt="Hero" priority />*/}
-        {/*</div>*/}
-
-        {/* Stats */}
-        {/*<Stats />*/}
+        <div className="mx-auto hidden max-w-[200px] text-center md:block">
+          <a
+            className="btn mx-auto flex flex-col rounded-full bg-zinc-900 px-8 text-zinc-100 shadow hover:bg-zinc-800"
+            href="#solution"
+          >
+            <div>Learn More</div>
+            <ArrowDownIcon className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   )

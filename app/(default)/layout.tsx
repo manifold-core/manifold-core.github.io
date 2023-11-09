@@ -11,7 +11,7 @@ export default function DefaultLayout({
 }) {
   return (
     <>
-      <Header />
+      {/*<Header />*/}
       {/*<Nav />*/}
       <main className="grow">{children}</main>
       <Footer />

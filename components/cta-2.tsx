@@ -8,7 +8,7 @@ type Props = Partial<{
 export default function Cta(props: Props) {
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 bg-zinc-800">
+      <div className="mx-auto max-w-6xl bg-zinc-800 px-4 sm:px-6">
         <div className="relative">
           <Background />
           <div className="-mx-20 px-20 py-12 md:py-20">

@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link";
-import CTAButton from "@/components/cta-button";
+import Link from "next/link"
+import CTAButton from "@/components/cta-button"
 
 export default function Pricing() {
   return (
@@ -39,14 +39,12 @@ export default function Pricing() {
                       <span className="text-2xl font-bold text-zinc-200">
                         %
                       </span>
-                      <span className="font-medium tracking-wide text-zinc-400">&nbsp;/ bounty</span>
+                      <span className="font-medium tracking-wide text-zinc-400">
+                        &nbsp;/ bounty
+                      </span>
                     </div>
-                    <div className="text-zinc-500">
-                      Money back guarantee.
-                    </div>
-                    <div className="text-zinc-500">
-                      No questions asked.
-                    </div>
+                    <div className="text-zinc-500">Money back guarantee.</div>
+                    <div className="text-zinc-500">No questions asked.</div>
                   </div>
                   <div className="mt-2">
                     <CTAButton />

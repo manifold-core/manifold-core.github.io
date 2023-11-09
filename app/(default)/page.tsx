@@ -1,4 +1,3 @@
-
 export const metadata = {
   title: "Home - Manifold",
   description: "Page description",
@@ -10,7 +9,7 @@ import Features03 from "@/components/features-03"
 import Pricing from "@/components/pricing"
 // import Testimonials from "@/components/testimonials"
 // import Cta from "@/components/cta"
-import Cta from "@/components/cta-2";
+import Cta from "@/components/cta-2"
 
 export default function Home() {
   return (

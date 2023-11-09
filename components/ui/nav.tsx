@@ -12,14 +12,17 @@ export function Nav() {
 
   return (
     <header
-      className={`relative sticky z-30 mx-auto max-w-3xl before:absolute inset-0 before:rounded-lg before:bg-white before:shadow-xl before:shadow-slate-900/5 before:transition-all before:duration-500 before:ease-[cubic-bezier(.5,.85,.25,1.8)] md:top-6 bg-transparent ${
+      className={`relative inset-0 z-30 mx-auto max-w-3xl bg-transparent before:absolute before:rounded-lg before:bg-white before:shadow-xl before:shadow-slate-900/5 before:transition-all before:duration-500 before:ease-[cubic-bezier(.5,.85,.25,1.8)] md:top-6 ${
         expanded ? "before:-inset-2 before:top-0" : "before:inset-0"
       }`}
     >
       <div className="relative">
         <div className="flex items-center px-4">
           <div className="focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300">
-            <Link className="flex h-8 w-8 items-center justify-center rounded" href="/">
+            <Link
+              className="flex h-8 w-8 items-center justify-center rounded"
+              href="/"
+            >
               <Image src={Logo} width={24} height={24} alt="Logo" />
             </Link>
           </div>

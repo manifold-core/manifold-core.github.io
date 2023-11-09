@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from "react";
-import {MagnifyingGlassIcon, XMarkIcon} from "@heroicons/react/24/outline";
-import {Badge} from "@/components/ui/badge";
+import { useEffect, useRef, useState } from "react"
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import { Badge } from "@/components/ui/badge"
 
 const prompts = [
   "a technical co-founder with experience",
   "a founding engineer to help build",
-  "a director at Netflix who can sign a pilot LOI with",
-  "a VP of Sales to scale my company from",
+  "a director at Netflix who can sign a pilot LOI",
   "a VC interested in leading a seed round for",
+  "a VP of Sales to scale my company from",
 ]
 
 export function Search() {
   const [query, setQuery] = useState("")
-  const ref = useRef<HTMLTextAreaElement>(null);
-  useAutosize(ref.current, query);
+  const ref = useRef<HTMLTextAreaElement>(null)
+  useAutosize(ref.current, query)
 
   return (
     <div className="relative">
@@ -23,7 +23,7 @@ export function Search() {
         className="block w-full resize-none overflow-y-hidden rounded-[30px] border-gray-200 p-4 pl-12 pr-20 text-base drop-shadow-lg focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
         placeholder="Who are you looking for?"
         value={query}
-        onChange={evt => setQuery(evt.currentTarget.value)}
+        onChange={(evt) => setQuery(evt.currentTarget.value)}
       />
       <div
         // className="absolute end-14 top-4 cursor-pointer"
@@ -39,7 +39,7 @@ export function Search() {
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center gap-x-2 rounded-full border border-transparent text-sm font-semibold text-gray-500 hover:text-gray-800 disabled:pointer-events-none disabled:opacity-50"
         >
-          <MagnifyingGlassIcon className="h-5"/>
+          <MagnifyingGlassIcon className="h-5" />
         </button>
       </div>
       {/*<div className="absolute end-2 top-2">*/}
@@ -66,15 +66,19 @@ export function Search() {
       {/*  </button>*/}
       {/*</div>*/}
       <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {prompts.map(p => <Badge
-          key={p}
-          className="w-full cursor-pointer sm:w-auto"
-          variant="default"
-          onClick={() => {
-            setQuery(`I'm looking for ${p} `)
-            ref.current?.focus()
-          }}
-        >{p}</Badge>)}
+        {prompts.map((p) => (
+          <Badge
+            key={p}
+            className="w-full cursor-pointer sm:w-auto"
+            variant="default"
+            onClick={() => {
+              setQuery(`I'm looking for ${p} `)
+              ref.current?.focus()
+            }}
+          >
+            {p}
+          </Badge>
+        ))}
       </div>
     </div>
   )
@@ -83,9 +87,9 @@ export function Search() {
 function useAutosize(ref: HTMLTextAreaElement | null, value: string) {
   useEffect(() => {
     if (ref) {
-      ref.style.height = "0px";
-      const scrollHeight = ref.scrollHeight;
-      ref.style.height = scrollHeight + "px";
+      ref.style.height = "0px"
+      const scrollHeight = ref.scrollHeight
+      ref.style.height = scrollHeight + "px"
     }
-  }, [ref, value]);
+  }, [ref, value])
 }

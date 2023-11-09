@@ -31,7 +31,8 @@ export default function Features02() {
               </em>
             </h2>
             <p className="mb-8 text-lg text-zinc-500">
-              Stop wasting your time on cold outreaches on LinkedIn and bad recruiters. Are you ready to start your search?
+              Stop wasting your time on cold outreaches on LinkedIn and bad
+              recruiters. Are you ready to start your search?
             </p>
             <div className="mx-auto max-w-xs space-y-4 sm:inline-flex sm:max-w-none sm:justify-center sm:space-x-4 sm:space-y-0">
               <div>

@@ -31,7 +31,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${inter_tight.variable} font-inter bg-white tracking-tight text-zinc-900 antialiased`}
       >
-        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:text-clip" style={{ scrollBehavior:'smooth' }}>
+        <div
+          className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:text-clip"
+          style={{ scrollBehavior: "smooth" }}
+        >
           {children}
         </div>
       </body>
