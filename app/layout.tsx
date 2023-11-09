@@ -28,6 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/favicon.svg" />
       <body
         className={`${inter.variable} ${inter_tight.variable} font-inter bg-white tracking-tight text-zinc-900 antialiased`}
       >
