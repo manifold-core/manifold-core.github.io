@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import PlanetImage from "@/public/images/planet.png"
 
-export default function Features01() {
+export default function Solution() {
   const [tab, setTab] = useState<number>(1)
 
   const tabs = useRef<HTMLDivElement>(null)
@@ -33,12 +33,12 @@ export default function Features01() {
         <h2 className="font-inter-tight mb-4 text-3xl font-bold text-zinc-900 md:text-4xl">
           Turn your network into personal recruiters
         </h2>
-        <p className="text-lg text-zinc-500">
+        <p className="mb-12 text-lg text-zinc-500">
           You place a bounty. Our system rewards your network when they help you
           find who you need.
         </p>
+        <Planet />
       </div>
-      <Planet />
     </section>
   )
 }

@@ -38,15 +38,15 @@ export default function Hero() {
           <Search />
         </div>
 
-        <div className="mx-auto mt-12 hidden max-w-[200px] text-center md:mt-24">
-          <a
-            className="btn bg-secondary text-secondary-foreground hover:bg-secondary/80 group mx-auto flex flex-col rounded-full px-8"
-            href="#solution"
-          >
-            <div>How does it work?</div>
-            {/*<ArrowDownIcon className="h-4 w-4" />*/}
-          </a>
-        </div>
+        {/*<div className="mx-auto mt-12 max-w-[200px] text-center md:mt-24">*/}
+        {/*  <a*/}
+        {/*    className="btn bg-secondary text-secondary-foreground hover:bg-secondary/80 group mx-auto flex flex-col rounded-full px-8"*/}
+        {/*    href="#solution"*/}
+        {/*  >*/}
+        {/*    <div>How does it work?</div>*/}
+        {/*    /!*<ArrowDownIcon className="h-4 w-4" />*!/*/}
+        {/*  </a>*/}
+        {/*</div>*/}
       </div>
     </section>
   )

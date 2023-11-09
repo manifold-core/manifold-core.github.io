@@ -4,22 +4,22 @@ export const metadata = {
 }
 
 import Hero from "@/components/hero"
-import Features01 from "@/components/features-01"
-import Features03 from "@/components/features-03"
+import Solution from "@/components/solution"
+import HowItWorks from "@/components/how-it-works"
 import Pricing from "@/components/pricing"
+import Features02 from "@/components/features-02";
 // import Testimonials from "@/components/testimonials"
-// import Cta from "@/components/cta"
 import Cta from "@/components/cta-2"
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Features01 />
-      <Features03 />
+      {/*<Features02 />*/}
+      <Solution />
+      <HowItWorks />
       <Pricing />
       {/*<Testimonials />*/}
-      {/*<Cta />*/}
       <Cta />
     </>
   )

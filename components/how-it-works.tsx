@@ -37,18 +37,18 @@ const STEPS = [
   {
     title: "Bounty hunts.",
     description:
-      "Bounty uses AI to engage your extended network to help find your target.",
+      "Bounty uses AI to engage your extended network to find your target.",
     icon: <CpuChipIcon className={className} />,
   },
   {
-    title: "Success.",
+    title: "Target found.",
     description:
       "Once found, the bounty is split between all the people who helped along the way.",
     icon: <CheckBadgeIcon className={className} />,
   },
 ]
 
-export default function Features03() {
+export default function HowItWorks() {
   const [tab, setTab] = useState<number>(1)
 
   const tabs = useRef<HTMLDivElement>(null)
@@ -78,9 +78,9 @@ export default function Features03() {
                   Supercharge your search
                 </h3>
                 <p className="text-lg text-zinc-400">
-                  {
-                    "Bounty combines the power of AI and your personal network to locate the people you're looking for."
-                  }
+                  Bounty combines the power of AI and your personal network to
+                  get you an introduction to the people you are looking for
+                  whether it is for hiring, closing a sale, or fundraising.
                 </p>
               </div>
               <div className="mb-8 space-y-2 md:mb-0">
