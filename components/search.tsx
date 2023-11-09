@@ -56,7 +56,7 @@ export function Search() {
         <textarea
           rows={1}
           ref={ref}
-          className="block w-full resize-none overflow-y-hidden rounded-[30px] border-gray-200 p-4 pl-12 pr-20 text-base drop-shadow-lg focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+          className="block w-full resize-none overflow-y-hidden rounded-[30px] border-gray-200 p-4 pl-12 pr-12 text-base drop-shadow-lg focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
           placeholder="Who are you looking for?"
           value={search}
           onChange={(evt) => setSearch(evt.currentTarget.value)}

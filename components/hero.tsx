@@ -11,19 +11,8 @@ export default function Hero() {
       id="search"
       className="relative flex h-screen items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100"
     >
-      <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
-      <div className="-mt-12 pb-12 pt-24 md:pt-32">
+      <Background />
+      <div>
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
           <Image src={Logo} alt="logo" className="h-12 w-12" />
         </div>
@@ -45,20 +34,37 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mb-15 mx-auto w-full max-w-4xl px-4 sm:px-6 md:mb-20 lg:px-8">
+        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
           <Search />
         </div>
 
-        <div className="mx-auto hidden max-w-[200px] text-center">
+        <div className="mx-auto mt-12 hidden max-w-[200px] text-center md:mt-24">
           <a
-            className="btn mx-auto flex flex-col rounded-full bg-zinc-900 px-8 text-zinc-100 shadow hover:bg-zinc-800"
+            className="btn bg-secondary text-secondary-foreground hover:bg-secondary/80 group mx-auto flex flex-col rounded-full px-8"
             href="#solution"
           >
-            <div>Learn More</div>
-            <ArrowDownIcon className="h-4 w-4" />
+            <div>How does it work?</div>
+            {/*<ArrowDownIcon className="h-4 w-4" />*/}
           </a>
         </div>
       </div>
     </section>
+  )
+}
+
+function Background() {
+  return (
+    <div
+      className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+      aria-hidden="true"
+    >
+      <div
+        className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        style={{
+          clipPath:
+            "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+        }}
+      />
+    </div>
   )
 }

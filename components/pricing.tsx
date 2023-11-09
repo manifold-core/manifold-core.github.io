@@ -19,7 +19,7 @@ export default function Pricing() {
               And the best part?
             </h2>
             <p className="text-lg text-zinc-500">
-              You only pay if we find you who you are searching for.
+              You only pay if you find who you are searching for.
             </p>
           </div>
 
