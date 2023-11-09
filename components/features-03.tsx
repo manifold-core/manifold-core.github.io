@@ -69,7 +69,7 @@ export default function Features03() {
         <div className="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-6xl">
           <div className="items-center space-y-12 lg:flex lg:space-x-12 lg:space-y-0 xl:space-x-24">
             <div className="mx-auto max-w-xl">
-            {/*<div className="lg:min-w-[524px] lg:max-w-none">*/}
+              {/*<div className="lg:min-w-[524px] lg:max-w-none">*/}
               <div className="mb-8">
                 <div className="mb-4 inline-flex rounded-full border border-transparent px-4 py-1 text-xs font-medium	uppercase tracking-wide text-zinc-400 [background:linear-gradient(theme(colors.zinc.800),theme(colors.zinc.800))_padding-box,linear-gradient(120deg,theme(colors.zinc.700),theme(colors.zinc.700/0),theme(colors.zinc.700))_border-box]">
                   How it works
