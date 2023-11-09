@@ -27,19 +27,19 @@ const STEPS = [
   {
     title: "Notify your network.",
     description:
-      "Choose up to 10 people in your network to start your search and us handle the rest.",
+      "Choose up to 10 people in your network to start your search.",
     icon: <ChatBubbleOvalLeftIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
   {
     title: "Bounty hunt.",
     description:
-      "Bounty uses AI to engage your extended network to assist in finding your target.",
+      "Bounty uses AI to engage your extended network to help find your target.",
     icon: <CpuChipIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
   {
     title: "Success.",
     description:
-      "Once found, bounty splits the reward across all the people who helped along the way.",
+      "Once found, the bounty is split between all the people who helped along the way.",
     icon: <CheckBadgeIcon className="h-6 w-6 stroke-2 text-zinc-400" />,
   },
 ]
@@ -75,7 +75,7 @@ export default function Features03() {
                 </h3>
                 <p className="text-lg text-zinc-400">
                   {
-                    "Bounty combines the power of AI, our proprietary search algorithm, and your professional network to find the best way to access the people you're looking for."
+                    "Bounty combines the power of AI and your personal network to locate the people you're looking for."
                   }
                 </p>
               </div>
@@ -113,6 +113,7 @@ export default function Features03() {
               <div className="relative flex flex-col" ref={tabs}>
                 {STEPS.map((step, i) => (
                   <Transition
+                    key={step.title}
                     show={tab === i + 1}
                     className="w-full"
                     enter="transition ease-in-out duration-700 transform order-first"

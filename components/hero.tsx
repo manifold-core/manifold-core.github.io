@@ -24,8 +24,8 @@ export default function Hero() {
         />
       </div>
       <div className="-mt-12 pb-12 pt-24 md:pt-32">
-        <div className="mx-auto flex h-32 w-32 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
-          <Image src={Logo} alt="logo" className="h-24 w-24" />
+        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
+          <Image src={Logo} alt="logo" className="h-12 w-12" />
         </div>
         <div className="px-4 sm:px-6">
           <div className="mx-auto max-w-4xl">
