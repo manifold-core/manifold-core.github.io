@@ -4,10 +4,18 @@ import { Search } from "@/components/search"
 import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
 
-export default function SearchPage() {
+export default function SearchPage({ searchParams }: { searchParams: Record<string, string> }) {
   return (
-    <section className="relative flex h-screen items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100">
+    <section className="relative before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100">
       <Background />
+      {searchParams.q ? <div>{searchParams.q}</div> : <SearchBar /> }
+    </section>
+  )
+}
+
+function SearchBar() {
+  return (
+    <div className="flex h-screen items-center justify-center ">
       <div className="-mt-15 grid gap-y-2">
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
           <Image src={Logo} alt="logo" className="h-12 w-12" />
@@ -16,7 +24,7 @@ export default function SearchPage() {
           <Search />
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
