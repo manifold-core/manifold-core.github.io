@@ -12,10 +12,6 @@ export default function SearchPage() {
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
           <Image src={Logo} alt="logo" className="h-12 w-12" />
         </div>
-        <div className="text-center text-lg font-bold uppercase text-[#6366F1]">
-          Bounty
-          {/*<span className="bg-gradient-to-r from-[#6366F1] to-[#A1ADFF] bg-clip-text text-transparent">Bounty</span>*/}
-        </div>
         <div className="mx-auto mt-4 w-full max-w-3xl px-4 sm:px-6 lg:px-8">
           <Search />
         </div>
