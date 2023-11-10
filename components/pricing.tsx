@@ -18,9 +18,11 @@ export default function Pricing() {
             <h2 className="font-inter-tight mb-4 text-3xl font-bold text-zinc-900 md:text-4xl">
               And the best part?
             </h2>
-            <p className="text-lg text-zinc-500">
-              You only pay if you find who you are searching for.
-            </p>
+            <div className="grid gap-y-1 text-lg text-zinc-500">
+              <div>We only get paid if you find who you are searching for.</div>
+              <div>You only pay if you find who you are searching for.</div>
+              <div>We succeed if <span className="font-bold">YOU</span> succeed.</div>
+            </div>
           </div>
 
           <div className="pb-12">
@@ -29,8 +31,8 @@ export default function Pricing() {
               <div className="h-full">
                 <div className="relative flex h-full flex-col rounded-lg bg-zinc-800 p-6">
                   <div className="mb-4">
-                    <div className="text-md mb-1 font-semibold uppercase tracking-wide text-zinc-200">
-                      Simple
+                    <div className="mb-1 text-sm font-semibold uppercase tracking-wide text-zinc-200">
+                      we take a flat
                     </div>
                     <div className="font-inter-tight mb-2 inline-flex items-baseline">
                       <span className="text-4xl font-bold text-zinc-200">
@@ -43,6 +45,7 @@ export default function Pricing() {
                         &nbsp;/ bounty
                       </span>
                     </div>
+                    <div className="text-zinc-500">Unsatisfied?</div>
                     <div className="text-zinc-500">Money back guarantee.</div>
                     <div className="text-zinc-500">No questions asked.</div>
                   </div>
