@@ -3,6 +3,8 @@
 import { Search } from "@/components/search"
 import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
+import YC from "@/public/images/yc.svg"
+
 import { ArrowDownIcon } from "@heroicons/react/24/outline"
 
 export default function Hero() {
@@ -12,7 +14,7 @@ export default function Hero() {
       className="relative flex h-screen items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100"
     >
       <Background />
-      <div>
+      <div className="-mt-15">
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
           <Image src={Logo} alt="logo" className="h-12 w-12" />
         </div>
@@ -36,6 +38,10 @@ export default function Hero() {
 
         <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
           <Search />
+        </div>
+        <div className="mt-8 text-center">
+          <div className="text-muted-foreground mb-1 text-xs font-normal uppercase tracking-wide">Backed by</div>
+          <Image src={YC} alt="yc" className="h-6"/>
         </div>
 
         {/*<div className="mx-auto mt-12 max-w-[200px] text-center md:mt-24">*/}
