@@ -161,15 +161,15 @@ function Campaign(props: {
     const updated: any = { ...data, search }
     if (updated.contacts?.length) {
       ;(async () => {
-        await Email.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          {
-            ...updated,
-            contacts: updated.contacts.join(", "),
-          },
-          EMAILJS_PUBLIC_API_KEY
-        )
+        // await Email.send(
+        //   EMAILJS_SERVICE_ID,
+        //   EMAILJS_TEMPLATE_ID,
+        //   {
+        //     ...updated,
+        //     contacts: updated.contacts.join(", "),
+        //   },
+        //   EMAILJS_PUBLIC_API_KEY
+        // )
         setShow(false)
         setSearch("")
       })()
