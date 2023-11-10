@@ -33,10 +33,10 @@ const EMAILJS_PUBLIC_API_KEY = "cAm4_BslKf4HuNSII" as const
 
 const prompts = [
   "a technical co-founder with experience",
-  "a founding engineer to help build",
-  "a VC interested in leading a seed round for",
-  "a director at Netflix who can sign an LOI to pilot",
   "a VP of Sales to scale my company from",
+  "a founding engineer to help build",
+  "a director at Netflix who can sign an LOI to pilot",
+  "a VC interested in leading a seed round for",
 ]
 
 export function Search() {

@@ -29,14 +29,14 @@ export default function Hero() {
                 </span>
               </h1>
               <p className="mb-8 text-lg text-zinc-500 lg:text-xl">
-                Get the introduction to the people you need to take your startup
+                Get a warm introduction to the people you need to take your business
                 to the next level.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
           <Search />
         </div>
         <div className="mt-8 text-center">

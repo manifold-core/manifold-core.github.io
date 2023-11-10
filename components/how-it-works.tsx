@@ -26,7 +26,7 @@ const STEPS = [
   {
     title: "Set a bounty.",
     description:
-      "Determine the incentive for people to help you find that perfect person.",
+      "Determine how much to reward the people who end up helping you finding your target.",
     icon: <CurrencyDollarIcon className={className} />,
   },
   {

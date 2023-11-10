@@ -19,8 +19,8 @@ export default function Pricing() {
               And the best part?
             </h2>
             <div className="grid gap-y-1 text-lg text-zinc-500">
-              <div>We only get paid if you find who you are searching for.</div>
               <div>You only pay if you find who you are searching for.</div>
+              <div>We only get paid if you find who you are searching for.</div>
               <div>We succeed if <span className="font-bold">YOU</span> succeed.</div>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default function Pricing() {
                         %
                       </span>
                       <span className="font-medium tracking-wide text-zinc-400">
-                        &nbsp;/ bounty
+                        &nbsp;/ bounty paid
                       </span>
                     </div>
                     <div className="text-zinc-500">Unsatisfied?</div>
