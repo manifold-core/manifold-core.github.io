@@ -1,5 +1,5 @@
-import Image from "next/image";
-import PlanetImage from "@/public/images/planet.png";
+import Image from "next/image"
+import PlanetImage from "@/public/images/planet.png"
 
 export function Planet() {
   return (

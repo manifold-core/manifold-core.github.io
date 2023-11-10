@@ -1,21 +1,29 @@
 "use client"
 
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import {Modal} from "@/components/modal";
-import {XMarkIcon} from "@heroicons/react/24/outline";
-import Image from "next/image";
-import Logo from "@/public/images/logo.svg";
-import * as z from "zod";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {Input} from "@/components/ui/input";
-import {PhoneInput} from "@/components/ui/input-phone";
-import {DollarInput} from "@/components/ui/input-dollar";
-import {Button} from "@/components/ui/button";
-import {Avatar, AvatarFallback} from "@/components/ui/avatar";
-import {parsePhoneNumber} from "libphonenumber-js";
-import {Textarea} from "@/components/ui/textarea";
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { Modal } from "@/components/modal"
+import { XMarkIcon } from "@heroicons/react/24/outline"
+import Image from "next/image"
+import Logo from "@/public/images/logo.svg"
+import * as z from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { PhoneInput } from "@/components/ui/input-phone"
+import { DollarInput } from "@/components/ui/input-dollar"
+import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { parsePhoneNumber } from "libphonenumber-js"
+import { Textarea } from "@/components/ui/textarea"
 
 const EMAILJS_SERVICE_ID = "service_t2oc63w" as const
 const EMAILJS_TEMPLATE_ID = "template_tj4jqtb" as const
@@ -40,7 +48,7 @@ export function Campaign(props: {
   const [data, setData] = useState<object>({ search })
 
   useEffect(() => {
-    setData(prev => ({ ...prev, search }))
+    setData((prev) => ({ ...prev, search }))
   }, [search])
 
   const handleSubmit = async (updated: any) => {
@@ -54,8 +62,8 @@ export function Campaign(props: {
     //   EMAILJS_PUBLIC_API_KEY
     // )
     console.log({ ...updated, contacts: updated.contacts.join(", ") })
-    await new Promise(res => setTimeout(res, 4000))
-  };
+    await new Promise((res) => setTimeout(res, 4000))
+  }
 
   const handleClose = () => {
     setShow(false)
@@ -64,22 +72,22 @@ export function Campaign(props: {
 
   const viewProps = { data, setData, setView }
   let page: React.ReactNode
-  switch(view) {
+  switch (view) {
     case View.Personal:
       page = <Personal {...viewProps} />
-      break;
+      break
     case View.Bounty:
       page = <Bounty {...viewProps} />
-      break;
+      break
     case View.Contacts:
       page = <Contacts {...viewProps} />
-      break;
+      break
     case View.Review:
       page = <Review {...viewProps} onSubmit={handleSubmit} />
-      break;
+      break
     case View.Success:
       page = <Success {...viewProps} onClose={handleClose} />
-      break;
+      break
     default:
       page = null
   }
@@ -216,9 +224,13 @@ function Bounty(props: ViewProps) {
 
   return (
     <Form {...form}>
-      <form className="mb-2 grid gap-y-2" onSubmit={form.handleSubmit(nextHandler)}>
+      <form
+        className="mb-2 grid gap-y-2"
+        onSubmit={form.handleSubmit(nextHandler)}
+      >
         <div className="mb-2 text-center text-base">
-          How much do you want to pay for a warm introduction to the right person?
+          How much do you want to pay for a warm introduction to the right
+          person?
         </div>
         <FormField
           name="bounty"
@@ -247,8 +259,8 @@ function Bounty(props: ViewProps) {
                 />
               </FormControl>
               <FormDescription>
-                The bounty will be given to the people who successfully assist you in
-                finding your person.
+                The bounty will be given to the people who successfully assist
+                you in finding your person.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -277,7 +289,7 @@ function Contacts(props: ViewProps) {
   async function nextHandler() {
     try {
       setSaving(true)
-      setData((prev) => ({...prev, contacts}))
+      setData((prev) => ({ ...prev, contacts }))
       setView(View.Review)
     } finally {
       setSaving(false)
@@ -301,7 +313,8 @@ function Contacts(props: ViewProps) {
     <Form {...form}>
       <form className="mb-2 grid gap-y-2" onSubmit={form.handleSubmit(handler)}>
         <div className="mb-2 text-center text-base">
-          Who are the people in your network that can best help you find this person?
+          Who are the people in your network that can best help you find this
+          person?
         </div>
         <FormField
           name="value"
@@ -347,7 +360,8 @@ function Contacts(props: ViewProps) {
                 </div>
               </FormControl>
               <FormDescription>
-                We suggest 5-10 contacts as a good foundation to start your search.
+                We suggest 5-10 contacts as a good foundation to start your
+                search.
               </FormDescription>
             </FormItem>
           )}
@@ -371,12 +385,14 @@ function Contacts(props: ViewProps) {
 const ReviewSchema = z.object({ search: z.string() })
 type ReviewData = z.infer<typeof ReviewSchema>
 
-function Review(props: ViewProps & { onSubmit: (data: object) => Promise<void> }) {
+function Review(
+  props: ViewProps & { onSubmit: (data: object) => Promise<void> }
+) {
   const { data, setData, setView, onSubmit } = props
   const [saving, setSaving] = useState(false)
   const form = useForm<ReviewData>({
     defaultValues: {
-      search: (data as any || {}).search || ''
+      search: ((data as any) || {}).search || "",
     },
     resolver: zodResolver(ReviewSchema),
   })
@@ -392,50 +408,56 @@ function Review(props: ViewProps & { onSubmit: (data: object) => Promise<void> }
     }
   }
 
-  return <Form {...form}>
-    <form className="mb-2 grid gap-y-2" onSubmit={form.handleSubmit(nextHandler)}>
-      <div className="mb-2 text-center text-base">
-        Review your search before submitting.
-      </div>
-      <FormField
-        name="search"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel required>Who are you looking for?</FormLabel>
-            <FormControl>
-              <Textarea {...field} disabled={saving} />
-            </FormControl>
-            <FormDescription>
-              The more details you provide, the better your search results.
-            </FormDescription>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <button
-        type="submit"
-        className="btn mt-2 w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
-        disabled={saving}
+  return (
+    <Form {...form}>
+      <form
+        className="mb-2 grid gap-y-2"
+        onSubmit={form.handleSubmit(nextHandler)}
       >
-        Start Search
-      </button>
-    </form>
-  </Form>
+        <div className="mb-2 text-center text-base">
+          Review your search before submitting.
+        </div>
+        <FormField
+          name="search"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>Who are you looking for?</FormLabel>
+              <FormControl>
+                <Textarea {...field} disabled={saving} />
+              </FormControl>
+              <FormDescription>
+                The more details you provide, the better your search results.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <button
+          type="submit"
+          className="btn mt-2 w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
+          disabled={saving}
+        >
+          Start Search
+        </button>
+      </form>
+    </Form>
+  )
 }
 
 function Success(props: ViewProps & { onClose: () => void }) {
   // CONFETTI page
-  return <div>
-    Success
-    <button
-      className="btn mt-2 w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
-      onClick={props.onClose}
-    >
-      Start Another Search
-    </button>
-  </div>
+  return (
+    <div>
+      Success
+      <button
+        className="btn mt-2 w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
+        onClick={props.onClose}
+      >
+        Start Another Search
+      </button>
+    </div>
+  )
 }
-
 
 function AddedList(props: {
   contacts: string[]
