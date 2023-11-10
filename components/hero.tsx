@@ -36,7 +36,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
           <Search />
         </div>
         <div className="mt-8 text-center">

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Manifold",
-  description: "Page description",
+  title: "Home - Bounty",
+  description: "People search supercharged",
 }
 
 import Hero from "@/components/hero"

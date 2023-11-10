@@ -17,7 +17,7 @@ const inter_tight = Inter_Tight({
 })
 
 export const metadata = {
-  title: "Home - Manifold",
+  title: "Home - Bounty",
   description: "People search supercharged",
 }
 
