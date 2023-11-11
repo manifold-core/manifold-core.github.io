@@ -30,7 +30,7 @@ type ContactData = z.infer<typeof ContactSchema>
 
 export function Network(props: ViewProps) {
   const { data, setData } = props
-  const [temp, setTemp] = useLocalStorage("temp")
+  const [temp, setTemp] = useLocalStorage<object>("temp")
   const { next } = useContext(StepContext)
   const [contacts, setContacts] = useState<string[]>(
     (data as any).contacts || []

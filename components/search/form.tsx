@@ -14,7 +14,7 @@ import { Review } from "@/components/search/review"
 import { Welcome } from "@/components/search/welcome"
 
 export function SearchForm({ search }: { search: string }) {
-  const [temp, setTemp] = useLocalStorage("temp")
+  const [temp, setTemp] = useLocalStorage<object>("temp")
   const [data, setData] = useState<object>({ search })
   useEffect(() => {
     setData((prev) => ({ ...prev, search }))

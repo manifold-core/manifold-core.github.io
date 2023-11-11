@@ -28,7 +28,7 @@ type PersonalData = z.infer<typeof PersonalSchema>
 
 export function Personal(props: ViewProps) {
   const { data, setData } = props
-  const [temp, setTemp] = useLocalStorage("temp")
+  const [temp, setTemp] = useLocalStorage<object>("temp")
   const { next } = useContext(StepContext)
   const [saving, setSaving] = useState(false)
   const form = useForm<PersonalData>({
