@@ -6,7 +6,7 @@ export function Welcome() {
       <div className="mb-2 text-center text-xs font-semibold uppercase text-blue-600">
         Bounty
       </div>
-      <div className="center mb-2 text-2xl font-bold">Welcome!</div>
+      <div className="mb-2 text-center text-2xl font-bold">Welcome!</div>
       <div className="text-md text-muted-foreground mb-4 text-center">
         Start your search after answering a few questions.
       </div>
