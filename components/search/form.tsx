@@ -22,7 +22,7 @@ export function SearchForm({ search }: { search: string }) {
 
   useEffect(() => {
     setData((prev) => {
-      const values = temp || {}
+      const values: any = temp || {}
       return {
         ...prev,
         name: values.name,
