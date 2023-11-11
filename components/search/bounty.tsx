@@ -1,15 +1,23 @@
 "use client"
 
-import * as z from "zod";
-import {useContext, useState} from "react";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
+import * as z from "zod"
+import { useContext, useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 
-import {ViewProps} from "@/components/search/types";
-import {NextButton} from "@/components/search/next-button";
-import {StepContext} from "@/components/search/step";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {DollarInput} from "@/components/ui/input-dollar";
+import { ViewProps } from "@/components/search/types"
+import { NextButton } from "@/components/search/next-button"
+import { StepContext } from "@/components/search/step"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { DollarInput } from "@/components/ui/input-dollar"
 
 const BountySchema = z.object({ bounty: z.number().min(0) })
 type BountyData = z.infer<typeof BountySchema>

@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Link from "next/link"
 import { CheckIcon } from "@heroicons/react/24/outline"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import { Confetti } from "@/components/confetti"
-import {Background} from "@/components/background";
-import {Card} from "@/components/ui/card";
+import { Background } from "@/components/background"
+import { Card } from "@/components/ui/card"
 
 export default function Success() {
   return (
@@ -22,8 +22,14 @@ export default function Success() {
             You will be notified if your bounty target has been found.
           </div>
           <div className="grid gap-y-2">
-            <Link href="/"><Button variant="secondary" className="mx-auto block w-[250px]">Go Home</Button></Link>
-            <Link href="/search"><Button className="mx-auto block w-[250px]">Post Bounty</Button></Link>
+            <Link href="/">
+              <Button variant="secondary" className="mx-auto block w-[250px]">
+                Go Home
+              </Button>
+            </Link>
+            <Link href="/search">
+              <Button className="mx-auto block w-[250px]">Post Bounty</Button>
+            </Link>
           </div>
         </Card>
       </div>

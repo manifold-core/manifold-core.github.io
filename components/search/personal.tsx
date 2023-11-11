@@ -1,15 +1,22 @@
 "use client"
 
-import * as z from "zod";
-import {useContext, useState} from "react";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {Input} from "@/components/ui/input";
-import {PhoneInput} from "@/components/ui/input-phone";
-import {ViewProps} from "@/components/search/types";
-import {NextButton} from "@/components/search/next-button";
-import {StepContext} from "@/components/search/step";
+import * as z from "zod"
+import { useContext, useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { PhoneInput } from "@/components/ui/input-phone"
+import { ViewProps } from "@/components/search/types"
+import { NextButton } from "@/components/search/next-button"
+import { StepContext } from "@/components/search/step"
 
 const PersonalSchema = z.object({
   name: z.string(),

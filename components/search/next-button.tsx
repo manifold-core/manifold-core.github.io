@@ -21,9 +21,7 @@ export function NextButton({
       disabled={disabled}
       type="submit"
       className="mx-auto mt-2 block w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
-      onClick={(evt) =>
-        transition ? next() : onClick && onClick(evt)
-      }
+      onClick={(evt) => (transition ? next() : onClick && onClick(evt))}
     >
       {text || "Next"}
     </Button>

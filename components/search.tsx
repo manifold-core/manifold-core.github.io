@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { useForm } from "react-hook-form"
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
 
 import { Badge } from "@/components/ui/badge"
 

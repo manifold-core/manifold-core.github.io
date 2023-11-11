@@ -1,16 +1,24 @@
 "use client"
 
-import * as z from "zod";
-import {useState} from "react";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {useRouter} from "next/navigation";
+import * as z from "zod"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useRouter } from "next/navigation"
 import * as Email from "@emailjs/browser"
 
-import {ViewProps} from "@/components/search/types";
-import {NextButton} from "@/components/search/next-button";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {Textarea} from "@/components/ui/textarea";
+import { ViewProps } from "@/components/search/types"
+import { NextButton } from "@/components/search/next-button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Textarea } from "@/components/ui/textarea"
 
 const ReviewSchema = z.object({ search: z.string() })
 type ReviewData = z.infer<typeof ReviewSchema>
@@ -67,12 +75,15 @@ export function Review(props: ViewProps) {
           name="search"
           render={({ field }) => (
             <FormItem>
-              <FormLabel required>Who are you looking for?</FormLabel>
+              <FormLabel required>
+                Do you want to add any details on who you are looking for?
+              </FormLabel>
               <FormControl>
                 <Textarea {...field} disabled={saving} />
               </FormControl>
               <FormDescription>
-                The more details you provide, the better your search results.
+                We typically see higher success rates with more detailed
+                descriptions.
               </FormDescription>
               <FormMessage />
             </FormItem>

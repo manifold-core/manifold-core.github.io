@@ -29,4 +29,3 @@ export function Background({ children }: { children: React.ReactNode }) {
     </section>
   )
 }
-

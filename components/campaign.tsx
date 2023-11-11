@@ -23,8 +23,8 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { parsePhoneNumber } from "libphonenumber-js"
 import { Textarea } from "@/components/ui/textarea"
-import {useRouter} from "next/navigation";
-import {SearchForm} from "@/components/search/form";
+import { useRouter } from "next/navigation"
+import { SearchForm } from "@/components/search/form"
 
 const EMAILJS_SERVICE_ID = "service_t2oc63w" as const
 const EMAILJS_TEMPLATE_ID = "template_tj4jqtb" as const
@@ -104,7 +104,6 @@ interface ViewProps {
   setData: Dispatch<SetStateAction<object>>
   setView: Dispatch<SetStateAction<View>>
 }
-
 
 function Bounty(props: ViewProps) {
   const { setData, setView } = props

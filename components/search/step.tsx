@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, Dispatch, SetStateAction, useState } from "react"
-import {useQueryState} from "next-usequerystate";
+import { useQueryState } from "next-usequerystate"
 
 export interface Page {
   title: string
@@ -26,7 +26,7 @@ export const StepContext = createContext<Context>({} as unknown as Context)
 export const StepProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
-  const [query, setQuery] = useQueryState('step')
+  const [query, setQuery] = useQueryState("step")
   const [step, setStep] = useState<Context["step"]>(0)
   const [states, setStates] = useState<Context["states"]>([])
   return (
@@ -36,10 +36,10 @@ export const StepProvider: React.FC<React.PropsWithChildren<{}>> = ({
         setStep,
         next: () => {
           setQuery(step + 1)
-          setStep(prev => prev + 1)
+          setStep((prev) => prev + 1)
         },
         states,
-        setStates
+        setStates,
       }}
     >
       {children}

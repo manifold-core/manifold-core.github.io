@@ -3,14 +3,18 @@
 import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
 
-import {Background} from "@/components/background";
+import { Background } from "@/components/background"
 import { Search } from "@/components/search"
-import {SearchForm} from "@/components/search/form";
+import { SearchForm } from "@/components/search/form"
 
-export default function SearchPage({ searchParams }: { searchParams: Record<string, string> }) {
+export default function SearchPage({
+  searchParams,
+}: {
+  searchParams: Record<string, string>
+}) {
   return (
     <Background>
-      {searchParams.q ? <SearchForm search={searchParams.q} /> : <SearchBar /> }
+      {searchParams.q ? <SearchForm search={searchParams.q} /> : <SearchBar />}
     </Background>
   )
 }
@@ -29,4 +33,3 @@ function SearchBar() {
     </div>
   )
 }
-
