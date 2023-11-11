@@ -28,9 +28,9 @@ const ContactSchema = z.object({ value: z.string() })
 type ContactData = z.infer<typeof ContactSchema>
 
 export function Network(props: ViewProps) {
-  const { setData } = props
+  const { data, setData } = props
   const { next } = useContext(StepContext)
-  const [contacts, setContacts] = useState<string[]>(props.data.contacts || [])
+  const [contacts, setContacts] = useState<string[]>((data as any).contacts || [])
   const [saving, setSaving] = useState(false)
   const form = useForm<ContactData>({
     defaultValues: { value: "" },
