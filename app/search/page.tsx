@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation"
 
 import { Background } from "@/components/background"
 import { Search } from "@/components/search"

@@ -17,6 +17,7 @@ import { PhoneInput } from "@/components/ui/input-phone"
 import { ViewProps } from "@/components/search/types"
 import { NextButton } from "@/components/search/next-button"
 import { StepContext } from "@/components/search/step"
+import { useLocalStorage } from "react-use"
 
 const PersonalSchema = z.object({
   name: z.string(),
@@ -27,6 +28,7 @@ type PersonalData = z.infer<typeof PersonalSchema>
 
 export function Personal(props: ViewProps) {
   const { data, setData } = props
+  const [temp, setTemp] = useLocalStorage("temp")
   const { next } = useContext(StepContext)
   const [saving, setSaving] = useState(false)
   const form = useForm<PersonalData>({
@@ -38,6 +40,7 @@ export function Personal(props: ViewProps) {
     try {
       setSaving(true)
       setData((prev) => ({ ...prev, ...values }))
+      setTemp((prev) => ({ ...prev, ...values }))
       next()
     } finally {
       setSaving(false)

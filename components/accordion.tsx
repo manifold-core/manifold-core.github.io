@@ -45,7 +45,7 @@ export default function Accordion({
               width="12"
               height="2"
               rx="1"
-              className={`origin-center transform transition duration-200 ease-out ${
+              className={`origin-center transition duration-200 ease-out${
                 accordionOpen && "!rotate-180"
               }`}
             />
@@ -54,7 +54,7 @@ export default function Accordion({
               width="12"
               height="2"
               rx="1"
-              className={`origin-center rotate-90 transform transition duration-200 ease-out ${
+              className={`origin-center rotate-90 transition duration-200 ease-out${
                 accordionOpen && "!rotate-180"
               }`}
             />

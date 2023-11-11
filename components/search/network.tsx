@@ -23,21 +23,25 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { PhoneInput } from "@/components/ui/input-phone"
+import { useLocalStorage } from "react-use"
 
 const ContactSchema = z.object({ value: z.string() })
 type ContactData = z.infer<typeof ContactSchema>
 
 export function Network(props: ViewProps) {
   const { data, setData } = props
+  const [temp, setTemp] = useLocalStorage("temp")
   const { next } = useContext(StepContext)
-  const [contacts, setContacts] = useState<string[]>((data as any).contacts || [])
+  const [contacts, setContacts] = useState<string[]>(
+    (data as any).contacts || []
+  )
   const [saving, setSaving] = useState(false)
   const form = useForm<ContactData>({
     defaultValues: { value: "" },
     resolver: zodResolver(ContactSchema),
   })
 
-  async function nextHandler({ value }: ContactData) {
+  async function add({ value }: ContactData) {
     if (!value) return
     setContacts((prev) =>
       prev.includes(value) || prev.length >= 10 ? prev : [value, ...prev]
@@ -48,6 +52,7 @@ export function Network(props: ViewProps) {
   function handler() {
     setSaving(true)
     setData((prev) => ({ ...prev, contacts }))
+    setTemp((prev) => ({ ...prev, contacts }))
     next()
     setSaving(false)
   }
@@ -58,7 +63,7 @@ export function Network(props: ViewProps) {
         <form
           onSubmit={(evt) => {
             evt.preventDefault()
-            return form.handleSubmit(nextHandler)(evt)
+            return form.handleSubmit(add)(evt)
           }}
           className="grid gap-y-2"
         >
