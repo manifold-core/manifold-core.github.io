@@ -35,7 +35,7 @@ export const StepProvider: React.FC<React.PropsWithChildren<{}>> = ({
         step,
         setStep,
         next: () => {
-          setQuery(step + 1)
+          setQuery((step + 1).toString())
           setStep((prev) => prev + 1)
         },
         states,
