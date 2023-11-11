@@ -3,10 +3,9 @@
 import { useEffect, useRef, useState } from "react"
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { useForm } from "react-hook-form"
+import { useRouter } from "next/navigation";
 
-import { Campaign } from "@/components/campaign"
 import { Badge } from "@/components/ui/badge"
-import {useRouter} from "next/navigation";
 
 const prompts = [
   "a technical co-founder with experience",
@@ -17,15 +16,14 @@ const prompts = [
 ]
 
 export function Search() {
-  const [show, setShow] = useState(false)
-  const [search, setSearch] = useState("")
   const router = useRouter()
+  const [search, setSearch] = useState("")
   const ref = useRef<HTMLTextAreaElement>(null)
   const form = useForm()
   useAutosize(ref.current, search)
 
   function onSubmit() {
-    // setShow(true)
+    // TODO: persist to local storage instead of query params
     router.push(`/search?q=${encodeURIComponent(search)}`)
   }
 
@@ -102,12 +100,6 @@ export function Search() {
           </Badge>
         ))}
       </div>
-      <Campaign
-        search={search}
-        show={show}
-        setShow={setShow}
-        setSearch={setSearch}
-      />
     </div>
   )
 }

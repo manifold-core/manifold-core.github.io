@@ -1,7 +1,6 @@
 "use client"
 
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import { Modal } from "@/components/modal"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
@@ -24,6 +23,8 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { parsePhoneNumber } from "libphonenumber-js"
 import { Textarea } from "@/components/ui/textarea"
+import {useRouter} from "next/navigation";
+import {SearchForm} from "@/components/search/form";
 
 const EMAILJS_SERVICE_ID = "service_t2oc63w" as const
 const EMAILJS_TEMPLATE_ID = "template_tj4jqtb" as const
@@ -37,15 +38,11 @@ enum View {
   Success = "SUCCESS",
 }
 
-export function Campaign(props: {
-  search: string
-  show: boolean
-  setShow: Dispatch<SetStateAction<boolean>>
-  setSearch: Dispatch<SetStateAction<string>>
-}) {
-  const { search, show, setShow, setSearch } = props
+export function Campaign(props: { search: string }) {
+  const { search } = props
   const [view, setView] = useState(View.Personal)
   const [data, setData] = useState<object>({ search })
+  const router = useRouter()
 
   useEffect(() => {
     setData((prev) => ({ ...prev, search }))
@@ -66,8 +63,7 @@ export function Campaign(props: {
   }
 
   const handleClose = () => {
-    setShow(false)
-    setSearch("")
+    router.push("/search")
   }
 
   const viewProps = { data, setData, setView }
@@ -92,20 +88,14 @@ export function Campaign(props: {
       page = null
   }
   return (
-    <Modal show={show} setShow={setShow}>
-      <div className="-mr-4 flex justify-between md:-mr-6">
-        <div />
-        <div className="cursor-pointer" onClick={() => setShow(false)}>
-          <XMarkIcon className="h-6 w-6" />
-        </div>
-      </div>
+    <div>
       <Image
         src={Logo}
         alt="logo"
         className="mx-auto mb-5 h-10 w-10 md:h-12 md:w-12"
       />
       {page}
-    </Modal>
+    </div>
   )
 }
 
@@ -115,95 +105,6 @@ interface ViewProps {
   setView: Dispatch<SetStateAction<View>>
 }
 
-const PersonalSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  phone: z.string().optional(),
-})
-type PersonalData = z.infer<typeof PersonalSchema>
-
-function Personal(props: ViewProps) {
-  const { setData, setView } = props
-  const [saving, setSaving] = useState(false)
-  const form = useForm<PersonalData>({
-    resolver: zodResolver(PersonalSchema),
-  })
-
-  async function nextHandler(values: PersonalData) {
-    try {
-      setSaving(true)
-      setData((prev) => ({ ...prev, ...values }))
-      setView(View.Bounty)
-    } finally {
-      setSaving(false)
-    }
-  }
-  return (
-    <Form {...form}>
-      <div className="mb-2 text-center text-base">
-        Tell us where to send the search results.
-      </div>
-      <form
-        onSubmit={(evt) => {
-          evt.preventDefault()
-          return form.handleSubmit(nextHandler)(evt)
-        }}
-        className="grid gap-y-2"
-      >
-        <FormField
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel required>Your Name</FormLabel>
-              <FormControl>
-                <Input disabled={saving} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel required>Email</FormLabel>
-              <FormControl>
-                <Input type="email" disabled={saving} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone</FormLabel>
-              <FormControl>
-                <PhoneInput
-                  {...field}
-                  disabled={saving}
-                  onAccept={(phone) => form.setValue("phone", phone)}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <button
-          type="submit"
-          className="btn mt-2 w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
-          disabled={saving}
-        >
-          Next
-        </button>
-      </form>
-    </Form>
-  )
-}
-
-const BountySchema = z.object({ bounty: z.number().min(0) })
-type BountyData = z.infer<typeof BountySchema>
 
 function Bounty(props: ViewProps) {
   const { setData, setView } = props
@@ -274,110 +175,6 @@ function Bounty(props: ViewProps) {
           Next
         </button>
       </form>
-    </Form>
-  )
-}
-
-const ContactSchema = z.object({ value: z.string() })
-type ContactData = z.infer<typeof ContactSchema>
-
-function Contacts(props: ViewProps) {
-  const { setData, setView } = props
-  const [saving, setSaving] = useState(false)
-  const [contacts, setContacts] = useState<string[]>([])
-
-  async function nextHandler() {
-    try {
-      setSaving(true)
-      setData((prev) => ({ ...prev, contacts }))
-      setView(View.Review)
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  const form = useForm<ContactData>({
-    defaultValues: { value: "" },
-    resolver: zodResolver(ContactSchema),
-  })
-
-  function handler({ value }: ContactData) {
-    if (!value) return
-    setContacts((prev) =>
-      prev.includes(value) || prev.length >= 10 ? prev : [value, ...prev]
-    )
-    form.setValue("value", "")
-  }
-
-  return (
-    <Form {...form}>
-      <form className="mb-2 grid gap-y-2" onSubmit={form.handleSubmit(handler)}>
-        <div className="mb-2 text-center text-base">
-          Who are the people in your network that can best help you find this
-          person?
-        </div>
-        <FormField
-          name="value"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Email or Phone</FormLabel>
-              <FormControl>
-                <div className="flex gap-x-2">
-                  <div className="relative grow">
-                    {isNumber(field.value) ? (
-                      <PhoneInput
-                        className="pr-10"
-                        autoFocus
-                        value={field.value}
-                        onAccept={(value) => {
-                          form.setValue(
-                            "value",
-                            [...value.split("")].reduce(
-                              (x, y) => ("0123456789".includes(y) ? x + y : x),
-                              ""
-                            )
-                          )
-                        }}
-                      />
-                    ) : (
-                      <Input
-                        type="email"
-                        autoFocus
-                        className="pr-10"
-                        {...field}
-                      />
-                    )}
-                    <div className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3">
-                      {field.value ? (
-                        <XMarkIcon
-                          className="h-5 w-5"
-                          onClick={() => field.onChange("")}
-                        />
-                      ) : null}
-                    </div>
-                  </div>
-                  <Button type="submit">Add</Button>
-                </div>
-              </FormControl>
-              <FormDescription>
-                We suggest 5-10 contacts as a good foundation to start your
-                search.
-              </FormDescription>
-            </FormItem>
-          )}
-        />
-      </form>
-      <AddedList
-        contacts={contacts}
-        remove={(c) => setContacts((prev) => prev.filter((id) => id !== c))}
-      />
-      <button
-        className="btn mt-4 w-full bg-zinc-900 text-zinc-100 shadow hover:bg-zinc-800"
-        disabled={saving}
-        onClick={() => nextHandler()}
-      >
-        Next
-      </button>
     </Form>
   )
 }
