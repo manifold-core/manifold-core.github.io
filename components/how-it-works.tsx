@@ -21,7 +21,6 @@ const STEPS = [
     title: "Describe your target.",
     description: "The more details you provide, the better your results.",
     icon: <MagnifyingGlassIcon className={className} />,
-    illustration: Search3,
   },
   {
     title: "Set a bounty.",
@@ -97,7 +96,7 @@ export default function HowItWorks() {
                       setTab(i + 1)
                     }}
                   >
-                    <div className="block" style={{ width: "32px !important" }}>
+                    <div className="block" style={{ width: "36px !important" }}>
                       {step.icon}
                     </div>
                     <div className="grow">

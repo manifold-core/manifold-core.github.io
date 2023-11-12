@@ -5,8 +5,6 @@ import Image from "next/image"
 import Logo from "@/public/images/logo.svg"
 import YC from "@/public/images/yc.svg"
 
-import { ArrowDownIcon } from "@heroicons/react/24/outline"
-
 export default function Hero() {
   return (
     <section
@@ -29,7 +27,7 @@ export default function Hero() {
                 </span>
               </h1>
               <p className="mb-8 text-lg text-zinc-500 lg:text-xl">
-                Get a warm introduction to the people you need to take your
+                Find warm introductions to the people to take your
                 business to the next level.
               </p>
             </div>
@@ -45,7 +43,6 @@ export default function Hero() {
           </div>
           <Image src={YC} alt="yc" className="h-6" />
         </div>
-
         {/*<div className="mx-auto mt-12 max-w-[200px] text-center md:mt-24">*/}
         {/*  <a*/}
         {/*    className="btn bg-secondary text-secondary-foreground hover:bg-secondary/80 group mx-auto flex flex-col rounded-full px-8"*/}
