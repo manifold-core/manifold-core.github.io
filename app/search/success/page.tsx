@@ -16,7 +16,7 @@ export default function Success() {
             <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
           </div>
           <div className="mt-4 text-center text-2xl font-semibold">
-            Search Submitted
+            Search Started
           </div>
           <div className="mb-8 mt-2 text-center text-base text-gray-600">
             You will be notified if your bounty target has been found.
@@ -28,7 +28,7 @@ export default function Success() {
               </Button>
             </Link>
             <Link href="/search">
-              <Button className="mx-auto block w-[250px]">Post Bounty</Button>
+              <Button className="mx-auto block w-[250px]">+ Start Search</Button>
             </Link>
           </div>
         </Card>

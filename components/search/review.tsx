@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
 import * as Email from "@emailjs/browser"
+import Airtable from "airtable"
 
 import { ViewProps } from "@/components/search/types"
 import { NextButton } from "@/components/search/next-button"
@@ -23,9 +24,13 @@ import { Textarea } from "@/components/ui/textarea"
 const ReviewSchema = z.object({ search: z.string() })
 type ReviewData = z.infer<typeof ReviewSchema>
 
-const EMAILJS_SERVICE_ID = "service_t2oc63w" as const
-const EMAILJS_TEMPLATE_ID = "template_tj4jqtb" as const
-const EMAILJS_PUBLIC_API_KEY = "cAm4_BslKf4HuNSII" as const
+Airtable.configure({
+  endpointUrl: 'https://api.airtable.com',
+  apiKey: 'patyTkCbOq1gUtioJ.713c9f05eb2aa44de38d6dd3e5b38b9b2751af80b0234345b11afdc290e202b2'
+});
+
+const base = Airtable.base('appdloVj67m4T5LHN');
+const table = base("Searches")
 
 export function Review(props: ViewProps) {
   const { data, setData } = props
@@ -41,16 +46,21 @@ export function Review(props: ViewProps) {
       setSaving(true)
       setData((prev) => ({ ...prev, ...values }))
       const updated: any = { ...data, ...values }
-      await Email.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+      const results = await table.create([
         {
-          ...updated,
-          contacts: updated.contacts.join(", "),
+          "fields": {
+            "Name": updated.name,
+            "Email": updated.email,
+            "Phone": updated.phone,
+            "Bounty": updated.bounty,
+            "Contacts": updated.contacts.join(", "),
+            "Search": updated.search,
+          }
         },
-        EMAILJS_PUBLIC_API_KEY
-      )
+      ]);
       router.push("/search/success")
+    } catch (err) {
+      console.error(err)
     } finally {
       setSaving(false)
     }
