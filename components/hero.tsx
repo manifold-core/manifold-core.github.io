@@ -9,10 +9,10 @@ export default function Hero() {
   return (
     <section
       id="search"
-      className="relative flex h-screen items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100"
+      className="relative flex min-h-screen py-16 items-center justify-center before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-80 before:bg-gradient-to-b before:from-zinc-100"
     >
       <Background />
-      <div className="-mt-15">
+      <div className="md:-mt-15">
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm shadow-zinc-950/20">
           <Image src={Logo} alt="logo" className="h-12 w-12" />
         </div>

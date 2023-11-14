@@ -16,7 +16,7 @@ export default function Footer() {
                 <Image src={Logo} width={24} height={24} alt="Logo" />
               </Link>
               <div className="grow text-sm text-zinc-500">
-                &copy; Bounty Search. All rights reserved.
+                &copy; Bounty. All rights reserved.
               </div>
             </div>
           </div>

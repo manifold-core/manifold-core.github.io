@@ -24,7 +24,7 @@ export default function Problems() {
               Turn your network into personal recruiters
             </h2>
             <p className="mb-12 text-lg text-zinc-500">
-              You place a bounty. Our system rewards your network when they help you
+              You place a bounty. Our system navigates your extended network and rewards them when they help you
               find who you need.
             </p>
             <Planet />
