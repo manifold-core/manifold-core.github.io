@@ -19,7 +19,7 @@ export default function Success() {
             Search Started
           </div>
           <div className="mb-8 mt-2 text-center text-base text-gray-600">
-            You will be notified if your bounty target has been found.
+            You will be notified if your bounty prospect has been found.
           </div>
           <div className="grid gap-y-2">
             <Link href="/">

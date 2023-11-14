@@ -18,14 +18,14 @@ import {
 const className = "h-6 w-6 stroke-2 text-zinc-400"
 const STEPS = [
   {
-    title: "Describe your target.",
+    title: "Describe your prospect.",
     description: "The more details you provide, the better your results.",
     icon: <MagnifyingGlassIcon className={className} />,
   },
   {
     title: "Set a bounty.",
     description:
-      "Determine how much to reward the people who end up helping you finding your target.",
+      "Determine how much to reward the people who end up helping you finding your prospect.",
     icon: <CurrencyDollarIcon className={className} />,
   },
   {
@@ -36,7 +36,7 @@ const STEPS = [
   {
     title: "Bounty hunts.",
     description:
-      "Bounty uses AI to engage your extended network to find your target.",
+      "Bounty uses AI to engage your extended network to find your prospect.",
     icon: <CpuChipIcon className={className} />,
   },
   {
@@ -96,7 +96,7 @@ export default function HowItWorks() {
                       setTab(i + 1)
                     }}
                   >
-                    <div className="block" style={{ width: "36px !important" }}>
+                    <div className="block" style={{ width: "26px !important" }}>
                       {step.icon}
                     </div>
                     <div className="grow">

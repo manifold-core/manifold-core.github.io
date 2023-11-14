@@ -20,7 +20,6 @@ export default function Pricing() {
             </h2>
             <div className="grid gap-y-1 text-lg text-zinc-500">
               <div>You only pay if you find who you are searching for.</div>
-              <div>We only get paid if you find who you are searching for.</div>
               <div>
                 We succeed if <span className="font-bold">YOU</span> succeed.
               </div>

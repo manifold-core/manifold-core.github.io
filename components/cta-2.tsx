@@ -107,7 +107,7 @@ function Headline(props: Props) {
         data-aos="fade-right"
         data-aos-delay="100"
       >
-        {children || "Stop wasting your time with cold outreaches on LinkedIn."}
+        {children || "Stop wasting your time cold emailing prospects. Start closing deals."}
       </p>
     </div>
   )

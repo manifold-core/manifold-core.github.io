@@ -1,316 +1,192 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
-import PlanetImage from "@/public/images/planet.png"
+import Image from "next/image";
+import FeatureImage01 from "@/public/images/feature-post-01.png";
+import FeatureImage02 from "@/public/images/feature-post-02.png";
+import FeatureImage03 from "@/public/images/feature-post-03.png";
+import FeatureImage04 from "@/public/images/feature-post-04.png";
+import FeatureImage05 from "@/public/images/feature-post-05.png";
+import {Planet} from "@/components/planet";
 
-export default function Solution() {
-  const [tab, setTab] = useState<number>(1)
-
-  const tabs = useRef<HTMLDivElement>(null)
-
-  const heightFix = () => {
-    if (tabs.current && tabs.current.parentElement)
-      tabs.current.parentElement.style.height = `${tabs.current.clientHeight}px`
-  }
-
-  useEffect(() => {
-    heightFix()
-  }, [])
-
+export default function Problems() {
   return (
-    <section className="relative bg-zinc-50">
-      <div
-        className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 md:py-20"
-        id="solution"
-      >
-        <div
-          className="text-md mb-4 font-bold uppercase tracking-normal text-[#6366F1]"
-          data-aos="zoom-y-out"
-        >
-          solution
+    <section>
+      <div className="py-12 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="relative mx-auto max-w-3xl pb-12 text-center md:pb-20">
+            <div
+              className="text-md mb-4 font-bold uppercase tracking-normal text-[#6366F1]"
+              data-aos="zoom-y-out"
+            >
+              solution
+            </div>
+            <h2 className="font-inter-tight mb-4 text-3xl font-bold text-zinc-900 md:text-4xl">
+              Turn your network into personal recruiters
+            </h2>
+            <p className="mb-12 text-lg text-zinc-500">
+              You place a bounty. Our system rewards your network when they help you
+              find who you need.
+            </p>
+            <Planet />
+          </div>
+          {/*<Blocks />*/}
         </div>
-        <h2 className="font-inter-tight mb-4 text-3xl font-bold text-zinc-900 md:text-4xl">
-          Turn your network into personal recruiters
-        </h2>
-        <p className="mb-12 text-lg text-zinc-500">
-          You place a bounty. Our system rewards your network when they help you
-          find who you need.
-        </p>
-        <Planet />
       </div>
     </section>
   )
 }
 
-function Planet() {
+function Blocks() {
   return (
-    <div className="flex flex-col items-center pb-12 md:pb-16">
-      <div className="relative">
-        {/* Halo effect */}
-        <svg
-          className="pointer-events-none absolute inset-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          width="800"
-          height="800"
-          viewBox="0 0 800 800"
-          style={{ maxWidth: "200%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g className="fill-current text-gray-400 opacity-75">
-            <circle className="pulse" cx="400" cy="400" r="200" />
-            <circle className="pulse pulse-1" cx="400" cy="400" r="200" />
-            <circle className="pulse pulse-2" cx="400" cy="400" r="200" />
-          </g>
-        </svg>
-        {/* White box */}
-        <svg
-          className="absolute h-auto w-32 rounded-full shadow-xl"
-          viewBox="0 0 128 48"
-          style={{ width: "32%", top: "20%", right: "-16%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            className="fill-current text-white"
-            width="128"
-            height="48"
-            rx="24"
+    <div className="mx-auto grid max-w-xs gap-8 sm:max-w-none sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:gap-8">
+      <article className="flex flex-col rounded-lg border border-transparent [background:linear-gradient(theme(colors.white),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box] sm:col-span-2">
+        <div className="flex grow flex-col p-5 pt-6">
+          <div className="mb-1 flex items-center space-x-3">
+            <svg
+              className="inline-flex fill-zinc-400"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+            >
+              <path d="M17 9c.6 0 1 .4 1 1v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h6c.6 0 1 .4 1 1s-.4 1-1 1H4v12h12v-6c0-.6.4-1 1-1Zm-.7-6.7c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8Z" />
+            </svg>
+            <h3 className="font-inter-tight font-semibold text-zinc-900">
+              Truly Collaborative
+            </h3>
+          </div>
+          <p className="max-w-md grow text-sm text-zinc-500">
+            Create teams and organize your designs into folders using
+            project specs and insights.
+          </p>
+        </div>
+        <figure>
+          <Image
+            className="mx-auto h-[280px] object-cover object-left sm:h-auto sm:object-contain"
+            src={FeatureImage01}
+            width={721}
+            height={280}
+            alt="Feature Post 01"
           />
-        </svg>
-        {/* Globe image */}
-        <Image
-          className="relative rounded-full shadow-xl"
-          src={PlanetImage}
-          width={400}
-          alt="Planet"
-        />
-        {/* Static dots */}
-        <svg
-          className="absolute top-0 h-auto w-full"
-          viewBox="0 0 400 400"
-          style={{ left: "12%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <filter
-              x="-41.7%"
-              y="-34.2%"
-              width="183.3%"
-              height="185.6%"
-              filterUnits="objectBoundingBox"
-              id="world-ill-a"
+        </figure>
+      </article>
+      <article className="flex flex-col rounded-lg border border-transparent [background:linear-gradient(theme(colors.white),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
+        <div className="flex grow flex-col p-5 pt-6">
+          <div className="mb-1 flex items-center space-x-3">
+            <svg
+              className="inline-flex fill-zinc-400"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
             >
-              <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1" />
-              <feGaussianBlur
-                stdDeviation="6"
-                in="shadowOffsetOuter1"
-                result="shadowBlurOuter1"
-              />
-              <feColorMatrix
-                values="0 0 0 0 0 0 0 0 0 0.439215686 0 0 0 0 0.956862745 0 0 0 0.32 0"
-                in="shadowBlurOuter1"
-              />
-            </filter>
-            <filter
-              x="-83.3%"
-              y="-68.5%"
-              width="266.7%"
-              height="271.2%"
-              filterUnits="objectBoundingBox"
-              id="world-ill-c"
-            >
-              <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1" />
-              <feGaussianBlur
-                stdDeviation="6"
-                in="shadowOffsetOuter1"
-                result="shadowBlurOuter1"
-              />
-              <feColorMatrix
-                values="0 0 0 0 0 0 0 0 0 0.439215686 0 0 0 0 0.956862745 0 0 0 0.32 0"
-                in="shadowBlurOuter1"
-              />
-            </filter>
-            <filter
-              x="-7.3%"
-              y="-23.8%"
-              width="114.5%"
-              height="147.6%"
-              filterUnits="objectBoundingBox"
-              id="world-ill-e"
-            >
-              <feGaussianBlur stdDeviation="2" in="SourceGraphic" />
-            </filter>
-            <ellipse
-              id="world-ill-b"
-              cx="51"
-              cy="175.402"
-              rx="24"
-              ry="23.364"
-            />
-            <ellipse
-              id="world-ill-d"
-              cx="246"
-              cy="256.201"
-              rx="12"
-              ry="11.682"
-            />
-            <linearGradient
-              x1="50%"
-              y1="0%"
-              x2="50%"
-              y2="100%"
-              id="world-ill-f"
-            >
-              <stop stopColor="#6366F1" stopOpacity="0" offset="0%" />
-              <stop stopColor="#6366F1" stopOpacity=".64" offset="52.449%" />
-              <stop stopColor="#6366F1" stopOpacity="0" offset="100%" />
-            </linearGradient>
-          </defs>
-          <g transform="translate(0 -.818)" fill="none" fillRule="evenodd">
-            <use
-              fill="#000"
-              filter="url(#world-ill-a)"
-              xlinkHref="#world-ill-b"
-            />
-            <use fill="#6366F1" xlinkHref="#world-ill-b" />
-            <use
-              fill="#000"
-              filter="url(#world-ill-c)"
-              xlinkHref="#world-ill-d"
-            />
-            <use fill="#6366F1" xlinkHref="#world-ill-d" />
-            <ellipse
-              fillOpacity=".32"
-              fill="#6366F1"
-              cx="293"
-              cy="142.303"
-              rx="8"
-              ry="7.788"
-            />
-            <ellipse
-              fillOpacity=".64"
-              fill="#6366F1"
-              cx="250"
-              cy="187.083"
-              rx="6"
-              ry="5.841"
-            />
-            <ellipse
-              fillOpacity=".64"
-              fill="#6366F1"
-              cx="13"
-              cy="233.811"
-              rx="2"
-              ry="1.947"
-            />
-            <ellipse fill="#6366F1" cx="29" cy="114.072" rx="2" ry="1.947" />
-            <path
-              d="M258 256.2l87-29.204"
-              stroke="#666"
-              strokeWidth="2"
-              opacity=".16"
-              filter="url(#world-ill-e)"
-            />
-            <path
-              d="M258 251.333c111.333-40.237 141-75.282 89-105.136M136 103.364c66.667 4.543 104.667 32.45 114 83.72"
-              stroke="url(#world-ill-f)"
-              strokeWidth="2"
-              strokeDasharray="2"
-            />
-          </g>
-        </svg>
-        {/* Dynamic dots */}
-        <svg
-          className="absolute max-w-full"
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          style={{ width: "12%", top: "45%", left: "50%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g className="fill-current text-[#6366F1]">
-            <circle
-              className="pulse pulse-mini pulse-1"
-              cx="24"
-              cy="24"
-              r="8"
-            />
-            <circle
-              className="pulse pulse-mini pulse-2"
-              cx="24"
-              cy="24"
-              r="8"
-            />
-            <circle cx="24" cy="24" r="8" />
-          </g>
-        </svg>
-        <svg
-          className="absolute max-w-full"
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          style={{ width: "12%", top: "19%", left: "46%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g className="fill-current text-[#6366F1]">
-            <circle className="pulse pulse-mini" cx="24" cy="24" r="8" />
-            <circle
-              className="pulse pulse-mini pulse-2"
-              cx="24"
-              cy="24"
-              r="8"
-            />
-            <circle cx="24" cy="24" r="8" />
-          </g>
-        </svg>
-        {/* White box */}
-        <svg
-          className="absolute h-auto w-32 rounded-full shadow-xl"
-          viewBox="0 0 128 48"
-          style={{ width: "32%", top: "35%", left: "-25%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            className="fill-current text-white"
-            width="128"
-            height="48"
-            rx="24"
+              <path d="m6.035 17.335-4-14c-.2-.8.5-1.5 1.3-1.3l14 4c.9.3 1 1.5.1 1.9l-6.6 2.9-2.8 6.6c-.5.9-1.7.8-2-.1Zm-1.5-12.8 2.7 9.5 1.9-4.4c.1-.2.3-.4.5-.5l4.4-1.9-9.5-2.7Z" />
+            </svg>
+            <h3 className="font-inter-tight font-semibold text-zinc-900">
+              Advanced AI
+            </h3>
+          </div>
+          <p className="max-w-md grow text-sm text-zinc-500">
+            Generate images and explore new ways of presenting your
+            designs with AI.
+          </p>
+        </div>
+        <figure>
+          <Image
+            className="mx-auto h-[280px] object-cover object-left sm:h-auto sm:object-contain"
+            src={FeatureImage02}
+            width={342}
+            height={280}
+            alt="Feature Post 02"
           />
-        </svg>
-        {/* Black icon */}
-        <svg
-          className="absolute h-auto w-16 max-w-full rounded-full shadow-xl"
-          viewBox="0 0 64 64"
-          style={{ width: "16%", bottom: "12%", left: "27%" }}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            className="fill-current text-gray-800"
-            cx="32"
-            cy="32"
-            r="32"
+        </figure>
+      </article>
+      <article className="flex flex-col rounded-lg border border-transparent [background:linear-gradient(theme(colors.white),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
+        <div className="flex grow flex-col p-5 pt-6">
+          <div className="mb-1 flex items-center space-x-3">
+            <svg
+              className="inline-flex fill-zinc-400"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+            >
+              <path d="M8.974 16c-.3 0-.7-.2-.9-.5l-2.2-3.7-2.1 2.8c-.3.4-1 .5-1.4.2-.4-.3-.5-1-.2-1.4l3-4c.2-.3.5-.4.9-.4.3 0 .6.2.8.5l2 3.3 3.3-8.1c0-.4.4-.7.8-.7s.8.2.9.6l4 8c.2.5 0 1.1-.4 1.3-.5.2-1.1 0-1.3-.4l-3-6-3.2 7.9c-.2.4-.6.6-1 .6Z" />
+            </svg>
+            <h3 className="font-inter-tight font-semibold text-zinc-900">
+              Simple Snippets
+            </h3>
+          </div>
+          <p className="max-w-md grow text-sm text-zinc-500">
+            Get your scenes inside your projects using simple embed
+            code/snippets.
+          </p>
+        </div>
+        <figure>
+          <Image
+            className="mx-auto h-[280px] object-cover object-left sm:h-auto sm:object-contain"
+            src={FeatureImage03}
+            width={342}
+            height={280}
+            alt="Feature Post 03"
           />
-          <g transform="translate(.582 .055)" fill="none" fillRule="evenodd">
-            <g transform="rotate(33 -6.35 52.885)">
-              <path
-                fill="#C7D2FE"
-                d="M24.317 7.426a8.537 8.537 0 0 1-2.616 15.262 3.15 3.15 0 0 1-3.042-5.268l2.425-2.426a10.079 10.079 0 0 0 2.951-7.764c.088.064.186.128.282.196Z"
-              />
-              <path
-                fill="#6366F1"
-                d="M7.425 3.68a8.54 8.54 0 0 1 15.262 2.618 3.149 3.149 0 0 1-5.268 3.046L14.995 6.92a10.122 10.122 0 0 0-7.764-2.95c.062-.097.128-.195.194-.29Z"
-              />
-              <path
-                fill="#C7D2FE"
-                d="M3.68 20.572A8.54 8.54 0 0 1 6.296 5.31a3.148 3.148 0 0 1 3.05 5.268l-2.424 2.424a10.117 10.117 0 0 0-2.95 7.766c-.098-.064-.196-.128-.294-.196Z"
-              />
-              <path
-                fill="#6366F1"
-                d="M20.574 24.319A8.54 8.54 0 0 1 5.309 21.7a3.15 3.15 0 0 1 5.27-3.05l2.424 2.424a10.098 10.098 0 0 0 7.764 2.95 9.316 9.316 0 0 1-.193.295Z"
-              />
-            </g>
-          </g>
-        </svg>
-      </div>
+        </figure>
+      </article>
+      <article className="flex flex-col rounded-lg border border-transparent [background:linear-gradient(theme(colors.white),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
+        <div className="flex grow flex-col p-5 pt-6">
+          <div className="mb-1 flex items-center space-x-3">
+            <svg
+              className="inline-flex fill-zinc-400"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+            >
+              <path d="M9.3 11.7c-.4-.4-.4-1 0-1.4l7-7c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-7 7c-.4.4-1 .4-1.4 0ZM9.3 17.7c-.4-.4-.4-1 0-1.4l7-7c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-7 7c-.4.4-1 .4-1.4 0ZM2.3 12.7c-.4-.4-.4-1 0-1.4l7-7c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-7 7c-.4.4-1 .4-1.4 0Z" />
+            </svg>
+            <h3 className="font-inter-tight font-semibold text-zinc-900">
+              Precise Activity
+            </h3>
+          </div>
+          <p className="max-w-md grow text-sm text-zinc-500">
+            Easily make drag and drop interactions without coding.
+          </p>
+        </div>
+        <figure>
+          <Image
+            className="mx-auto h-[280px] object-cover object-left sm:h-auto sm:object-contain"
+            src={FeatureImage04}
+            width={342}
+            height={280}
+            alt="Feature Post 04"
+          />
+        </figure>
+      </article>
+      <article className="flex flex-col rounded-lg border border-transparent [background:linear-gradient(theme(colors.white),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
+        <div className="flex grow flex-col p-5 pt-6">
+          <div className="mb-1 flex items-center space-x-3">
+            <svg
+              className="inline-flex fill-zinc-400"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+            >
+              <path d="M16 2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8.667l3.733 2.8A1 1 0 0 0 18 17V4a2 2 0 0 0-2-2Zm0 13-2.4-1.8a1 1 0 0 0-.6-.2H4V4h12v11Z" />
+            </svg>
+            <h3 className="font-inter-tight font-semibold text-zinc-900">
+              Real-time Feedback
+            </h3>
+          </div>
+          <p className="max-w-md grow text-sm text-zinc-500">
+            Create tasks, projects, issues and more in just seconds.
+          </p>
+        </div>
+        <figure>
+          <Image
+            className="mx-auto h-[280px] object-cover object-left sm:h-auto sm:object-contain"
+            src={FeatureImage05}
+            width={342}
+            height={280}
+            alt="Feature Post 05"
+          />
+        </figure>
+      </article>
     </div>
   )
 }
