@@ -2,6 +2,7 @@ import "./css/style.css"
 
 import { Inter, Inter_Tight } from "next/font/google"
 import Script from "next/script"
+import GoogleAnalytics from "@/components/google-analytics"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/favicon.svg" />
+      <GoogleAnalytics tagId="G-1FG9TWS1K9" />
       <Script>
         {`(function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
