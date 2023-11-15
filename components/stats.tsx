@@ -16,7 +16,7 @@ export default function Stats() {
     {
       number: 24,
       suffix: "X",
-      text: "Likelihood to schedule a meeting vs cold outreach",
+      text: "Likelihood to schedule a meeting through referral vs cold outreach",
     },
     {
       number: 84,
